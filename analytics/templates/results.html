@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Analysis Results: {{ dataset.name }}</h2>
+    
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h4>Predictions</h4>
+            <ul class="list-group">
+                {% for prediction in predictions %}
+                <li class="list-group-item">Patient {{ forloop.counter }}: {{ prediction }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div class="col-md-6">
+            <h4>Prescriptions</h4>
+            <ul class="list-group">
+                {% for prescription in prescriptions %}
+                <li class="list-group-item">Patient {{ forloop.counter }}: {{ prescription }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary mt-4">Back to Dashboard</a>
+</div>
+{% endblock %}
